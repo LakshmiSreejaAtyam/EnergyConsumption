@@ -2,9 +2,8 @@ import streamlit as st
 import google.generativeai as genai
 
 # Set your Generative AI API key
-API_KEY = "AIzaSyC_IdYlWLiCXtVvn2qlLZIFgD6Rm9Smg5U"
-genai.configure(api_key=API_KEY)
-model=genai.generativeModel('gemini-1.5-flash')
+genai.configure(api_key="AIzaSyC_IdYlWLiCXtVvn2qlLZIFgD6Rm9Smg5U")  # Replace with your actual API key
+
 # Streamlit UI
 st.title("🔋 Energy Consumption Tracker with AI Insights")
 
@@ -36,13 +35,11 @@ if st.button("Calculate Energy Consumption"):
         # *AI-Generated Energy-Saving Tips*
         st.subheader("🤖 AI-Generated Energy-Saving Tips")
         prompt = f"Suggest energy-saving tips for a {device_name} consuming {power}W for {hours} hours daily."
-        
+
         try:
-            response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
-                messages=[{"role": "user", "content": prompt}]
-            )
-            st.write(response["choices"][0]["message"]["content"])
+            model = genai.GenerativeModel("gemini-1.5-flash")
+            response = model.generate_content(prompt)
+            st.write(response.text)
         except Exception as e:
             st.error("Error generating AI response. Please check your API key.")
 
