@@ -1,8 +1,10 @@
 import streamlit as st
-import openai
+import google.generativeai as genai
 
 # Set your Generative AI API key
-openai.api_key = "AIzaSyC_IdYlWLiCXtVvn2qlLZIFgD6Rm9Smg5U"
+API_KEY = "AIzaSyC_IdYlWLiCXtVvn2qlLZIFgD6Rm9Smg5U"
+genai.configure(api_key=API_KEY)
+model=genai.generativeModel('gemini-1.5-flash')
 # Streamlit UI
 st.title("🔋 Energy Consumption Tracker with AI Insights")
 
