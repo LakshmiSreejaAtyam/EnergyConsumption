@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 
 # Set your Generative AI API key
-openai.api_key = "AIzaSyC-VNtSTpG6TAynZRgmAuAySWj7iD0q_jc"  # Replace with your actual API key
+openai.api_key = "AIzaSyC_IdYlWLiCXtVvn2qlLZIFgD6Rm9Smg5U"  # Replace with your actual API key
 
 # Streamlit UI
 st.title("🔋 Energy Consumption Tracker with AI Insights")
